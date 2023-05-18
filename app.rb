@@ -167,6 +167,6 @@ class App
 
   def list_all_books
     puts 'No books yet, please create one' if @books.empty?
-    books.each { |book| puts "Title: #{book.title}, Author: #{book.author}, Id: #{book.id}" }
+    books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
   end
 end
