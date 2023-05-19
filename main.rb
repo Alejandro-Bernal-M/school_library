@@ -1,21 +1,50 @@
-# testing for associations
+require './app'
 
-require './book'
-require './rental'
-require './student'
-require './person'
-require './classroom'
+def main
+  puts 'Welcome to school library app!'
+  app = App.new
+  app.run
+end
 
-person1 = Person.new(26, 'alejo')
-person2 = Person.new(20, 'maria')
-puts person1.name
+def options
+  case @number.to_i
+  when 1
+    list_all_books
+    show_menu
+  when 2
+    list_all_people
+    show_menu
+  when 3
+    create_person
+    show_menu
+  when 4
+    create_book
+    show_menu
+  when 5
+    create_rental
+    show_menu
+  when 6
+    list_all_rentals_for_id
+    show_menu
+  end
+end
 
-book1 = Book.new('thrones', 'george')
-book2 = Book.new('the old and the sea', 'hernest')
+def show_menu
+  puts ''
+  puts 'Please choose an option by entering a number:'
+  puts '1 - List all books'
+  puts '2 - List all people'
+  puts '3 - Create a person'
+  puts '4 - Create a book'
+  puts '5 - Create a rental'
+  puts '6 - List all rentals for a given person ID'
+  puts '7 - Exit'
+  @number = gets
+  until @number.to_i.between?(1, 7)
+    puts 'Please write a number between 1 and 7'
+    @number = gets
+  end
+  options
+end
 
-Rental.new('2023-06-17', book1, person1)
-Rental.new('2023-06-10', book1, person2)
-Rental.new('2023-06-10', book2, person2)
-
-puts person1.rentals.count
-puts(book1.rentals.map { |rental| rental.person.name })
+main
