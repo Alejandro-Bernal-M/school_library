@@ -41,7 +41,7 @@ class App
     parent_permission = gets.chomp
     case parent_permission
     when 'y' || 'Y'
-      new_student = Student.new(age, name, true)
+      new_student = Student.new(name, age, true)
       @people << new_student
       puts 'Person created sucessfully'
     when 'n' || 'N'
@@ -65,7 +65,7 @@ class App
     @people << new_teacher
     puts 'Person created sucessfully'
   end
-
+  
   def create_book
     print 'Title: '
     title = gets.chomp
