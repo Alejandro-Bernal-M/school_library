@@ -66,6 +66,18 @@ bundle install
 - GitHub: [Alejandro](https://github.com/Alejandro-Bernal-M)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/alejandro-bernal-marin)
 
+👤 **Luis Sanchez**
+
+- Github: [GitHub](https://github.com/sanieni6/)
+- Twitter: [Twitter](https://twitter.com/its_luis_sz23)
+- Linkedin:  [LinkedIn](https://www.linkedin.com/in/luissanchezz3/)
+
+
+👤 **Juan Zorrilla**
+
+- GitHub: [@Swarzstein](https://github.com/Swarzstein)
+- LinkedIn: [Juan Zorrilla](https://www.linkedin.com/in/juan-a-zorrilla/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
