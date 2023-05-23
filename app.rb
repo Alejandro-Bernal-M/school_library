@@ -24,6 +24,7 @@ class App
   def run
     show_menu
     save_persons
+    save_books
     puts 'Thank you for using this app!' if @number.to_i == 7
   end
 end
