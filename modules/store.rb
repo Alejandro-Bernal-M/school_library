@@ -39,19 +39,29 @@ module Store
     end
   end
 
+  def get_book(rental)
+    books = JSON.parse(File.read('data/books.json'))
+    book_hash = books.select { |b| b['id'] == rental['book'] }
+    book_title = book_hash[0]['title']
+    book = @books.select { |b| b.title == book_title }
+    book[0]
+  end
+
+  def get_person(rental)
+    persons = JSON.parse(File.read('data/people.json'))
+    person_hash = persons.select { |p| p['id'] == rental['person'] }
+    person_name = person_hash[0]['name']
+    person = @people.select { |p| p.name == person_name }
+    person[0]
+  end
+
   def load_rentals
     return unless File.exist?('data/rentals.json') && File.size?('data/rentals.json')
 
-    books = JSON.parse(File.read('data/books.json'))
-    persons = JSON.parse(File.read('data/people.json'))
+
+
     JSON.parse(File.read('data/rentals.json')).each do |rental|
-      book_hash = books.select { |book| book['id'] == rental['book'] }
-      book_title = book_hash[0]['title']
-      book = @books.select { |book| book.title == book_title }
-      person_hash = persons.select { |person| person['id'] == rental['person'] }
-      person_name = person_hash[0]['name']
-      person = @people.select { |person| person.name == person_name }
-      @rentals << Rental.new(rental['date'], book[0], person[0])
+      @rentals << Rental.new(rental['date'], get_book(rental), get_person(rental))
     end
   end
 
