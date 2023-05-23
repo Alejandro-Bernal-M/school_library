@@ -44,9 +44,26 @@ module Store
       end
     end
   end
+
+  def load_rentals
+    if File.exist?('data/rentals.json') && File.size?('data/rentals.json')
+      books = JSON.parse(File.read('data/books.json'))
+      persons = JSON.parse(File.read('data/people.json')) 
+      JSON.parse(File.read('data/rentals.json')).each do |rental|
+        book_hash = books.select{ |book| book['id'] == rental['book'] }
+        book_title = book_hash[0]['title']
+        book = @books.select { |book| book.title == book_title }
+        person_hash = persons.select { |person| person["id"] == rental['person']}
+        person_name = person_hash[0]['name']
+        person = @people.select { |person| person.name == person_name}
+        @rentals << Rental.new(rental['date'], book[0], person[0])
+      end
+    end
+  end
   
   def load_files
     load_persons
     load_books
+    load_rentals
   end
 end
