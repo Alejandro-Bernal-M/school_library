@@ -1,3 +1,4 @@
+module Hasher
 def person_to_hash person
   if person.class == Student
   {
@@ -24,3 +25,11 @@ def book_to_hash book
   }
 end
 
+def rental_to_hash rental
+  {
+    date: rental.date,
+    book: rental.book,
+    person: rental.person
+  }
+end
+end
