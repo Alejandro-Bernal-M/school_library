@@ -19,6 +19,12 @@ module Store
     end
   end
 
+  def save_files
+    save_persons
+    save_books
+    save_rentals
+  end
+
   def load_persons
     if File.exist?('data/people.json') && File.size?('data/people.json')
       JSON.parse(File.read('data/people.json')).each do |person|
@@ -30,5 +36,17 @@ module Store
       end
     end
   end
+
+  def load_books
+    if File.exist?('data/books.json') && File.size?('data/books.json')
+      JSON.parse(File.read('data/books.json')).each do |book|
+        @books << Book.new(book['title'], book['author'])
+      end
+    end
+  end
   
+  def load_files
+    load_persons
+    load_books
+  end
 end

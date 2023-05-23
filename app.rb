@@ -22,11 +22,9 @@ class App
   end
 
   def run
-    load_persons
+    load_files
     show_menu
-    save_persons
-    save_books
-    save_rentals
+    save_files
     puts 'Thank you for using this app!' if @number.to_i == 7
   end
 end
