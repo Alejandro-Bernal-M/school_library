@@ -18,4 +18,14 @@ module Store
       f.write @rentals.map { |rental| rental_to_hash rental}.to_json
     end
   end
+
+  def load_persons
+    JSON.parse(File.read('data/people.json')).each do |person|
+      if person.key? 'classroom'
+        @people << Student.new( person['age'], person['name'], person['parent_permission'])
+      else
+        @people << Teacher.new( person['age'], person['specialization'], person['name'])
+      end
+    end
+  end
 end

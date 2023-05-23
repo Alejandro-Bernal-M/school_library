@@ -22,6 +22,7 @@ class App
   end
 
   def run
+    load_persons
     show_menu
     save_persons
     save_books
