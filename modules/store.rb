@@ -58,8 +58,6 @@ module Store
   def load_rentals
     return unless File.exist?('data/rentals.json') && File.size?('data/rentals.json')
 
-
-
     JSON.parse(File.read('data/rentals.json')).each do |rental|
       @rentals << Rental.new(rental['date'], get_book(rental), get_person(rental))
     end
