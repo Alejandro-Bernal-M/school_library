@@ -17,3 +17,10 @@ def person_to_hash person
   end
 end
 
+def book_to_hash book
+  {
+    title: book.title,
+    author: book.author
+  }
+end
+
