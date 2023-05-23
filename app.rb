@@ -25,6 +25,7 @@ class App
     show_menu
     save_persons
     save_books
+    save_rentals
     puts 'Thank you for using this app!' if @number.to_i == 7
   end
 end
