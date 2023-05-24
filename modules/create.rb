@@ -66,7 +66,7 @@ module Create
       print 'Write the number of the book that you want: '
       index = gets.chomp.to_i
       book = @books[index - 1]
-      puts 'Select the person who is renting the book by the ID'
+      puts 'Select the person who is renting the book by [number]'
       @people.each_with_index do |person, i|
         puts "[#{i + 1}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
       end
