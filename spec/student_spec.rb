@@ -5,9 +5,13 @@ describe Student do
   context 'When testing the Student class' do
     student = Student.new(23, 'Luis', true)
     classroom = Classroom.new('Math')
-    it "should say 'student initialized'" do
+    it "should return the student's age" do
       expect(student.age).to eq(23)
+    end
+    it "should return the student's name" do
       expect(student.name).to eq('Luis')
+    end
+    it "should return the student's parent permission" do
       expect(student.parent_permission).to eq(true)
     end
     it 'returns the play hooky message' do
