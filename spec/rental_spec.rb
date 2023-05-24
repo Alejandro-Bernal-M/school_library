@@ -28,7 +28,7 @@ end
 
 describe Rental do
   person = Person.new(20)
-  book = Book.new('Title','Author')
+  book = Book.new('Title', 'Author')
   rental = Rental.new('2023-02-08', book, person)
   context 'Testing the Rental class' do
     it 'creating an instance of the rental class' do
