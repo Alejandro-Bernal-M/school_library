@@ -63,7 +63,7 @@ module Create
     else
       puts 'Select a book by [number]'
       @books.each_with_index { |book, i| puts "[#{i + 1}] Title: #{book.title}, Author: #{book.author}" }
-      print 'Write the title of the book that you want: '
+      print 'Write the number of the book that you want: '
       index = gets.chomp.to_i
       book = @books[index - 1]
       puts 'Select the person who is renting the book by the ID'
