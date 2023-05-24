@@ -71,7 +71,7 @@ module Create
         puts "[#{i + 1}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
       end
       index = gets.chomp.to_i
-      person = @people[index]
+      person = @people[index - 1]
       print 'Please enter a date in the next format yyyy-mm-dd: '
       date = gets.chomp
       new_rental = Rental.new(date, book, person)
