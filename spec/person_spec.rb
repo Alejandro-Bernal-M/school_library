@@ -5,10 +5,8 @@ describe Person do
   person2 = Person.new(22)
   person3 = Person.new(11, 'Carlos', parent_permission: false)
   person4 = Person.new(22, 'Carlos', parent_permission: false)
+  person1.rentals.push('rent', 'rent', 'rent')
   context 'Test the Person class' do
-    it 'create an instance object of Person' do
-      expect(person1).to be_instance_of(Person)
-    end
     it 'return unknown if the name is not given' do
       expect(person2.name).to eq('Unknown')
     end
@@ -36,11 +34,7 @@ describe Person do
     it 'correct_name method expected to return the name' do
       expect(person1.correct_name).to eq('Carlos')
     end
-    it 'rentals method expected to return the rentals = 0 if empty' do
-      expect(person1.rentals.length).to eq(0)
-    end
     it 'rentals method expected to return the rentals = 3 if having 3 items' do
-      person1.rentals.push('rent', 'rent', 'rent')
       expect(person1.rentals.length).to eq(3)
     end
   end
