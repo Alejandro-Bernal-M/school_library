@@ -61,18 +61,20 @@ module Create
     if @books.empty? || @people.empty?
       puts 'You need a book and a person to create a new renta, please add both first'
     else
-      puts 'Select a book by title'
-      @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
-      print 'Write the title of the book that you want: '
-      book_title = gets.chomp
-      book = @books.select { |b| b.title == book_title }
-      puts 'Select the person who is renting the book by the ID'
-      @people.each { |person| puts "Name: #{person.name}, Age: #{person.age}, id: #{person.id}" }
-      person_id = gets.chomp.to_i
-      person = @people.select { |per| per.id == person_id }
+      puts 'Select a book by [number]'
+      @books.each_with_index { |book, i| puts "[#{i + 1}] Title: #{book.title}, Author: #{book.author}" }
+      print 'Write the number of the book that you want: '
+      index = gets.chomp.to_i
+      book = @books[index - 1]
+      puts 'Select the person who is renting the book by [number]'
+      @people.each_with_index do |person, i|
+        puts "[#{i + 1}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
+      end
+      index = gets.chomp.to_i
+      person = @people[index - 1]
       print 'Please enter a date in the next format yyyy-mm-dd: '
       date = gets.chomp
-      new_rental = Rental.new(date, book[0], person[0])
+      new_rental = Rental.new(date, book, person)
       @rentals << new_rental
       puts 'Rental created succesfully'
     end
